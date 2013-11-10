@@ -22,6 +22,8 @@
 		9D5829E0182F8ECC009EB477 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D5829DE182F8ECC009EB477 /* InfoPlist.strings */; };
 		9D5829E2182F8ECC009EB477 /* KZPropertyMapperUseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5829E1182F8ECC009EB477 /* KZPropertyMapperUseTests.m */; };
 		9D5829ED182F8F86009EB477 /* YGBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5829EC182F8F86009EB477 /* YGBaseModel.m */; };
+		9D5829F3182FC9E6009EB477 /* testOrderList.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9D5829F2182FC9E6009EB477 /* testOrderList.txt */; };
+		9D5829F6182FCD23009EB477 /* YGBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5829F5182FCD23009EB477 /* YGBaseRequest.m */; };
 		D940702EA15349A5B27A0CC7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA5435488FA4D92BF62A939 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +61,9 @@
 		9D5829E1182F8ECC009EB477 /* KZPropertyMapperUseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KZPropertyMapperUseTests.m; sourceTree = "<group>"; };
 		9D5829EB182F8F86009EB477 /* YGBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGBaseModel.h; sourceTree = "<group>"; };
 		9D5829EC182F8F86009EB477 /* YGBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGBaseModel.m; sourceTree = "<group>"; };
+		9D5829F2182FC9E6009EB477 /* testOrderList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testOrderList.txt; sourceTree = "<group>"; };
+		9D5829F4182FCD23009EB477 /* YGBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGBaseRequest.h; sourceTree = "<group>"; };
+		9D5829F5182FCD23009EB477 /* YGBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGBaseRequest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +180,8 @@
 			children = (
 				9D5829EB182F8F86009EB477 /* YGBaseModel.h */,
 				9D5829EC182F8F86009EB477 /* YGBaseModel.m */,
+				9D5829F4182FCD23009EB477 /* YGBaseRequest.h */,
+				9D5829F5182FCD23009EB477 /* YGBaseRequest.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -182,6 +189,7 @@
 		9D5829F1182F8FEB009EB477 /* Rescouce */ = {
 			isa = PBXGroup;
 			children = (
+				9D5829F2182FC9E6009EB477 /* testOrderList.txt */,
 				9D5829CE182F8ECC009EB477 /* Images.xcassets */,
 			);
 			name = Rescouce;
@@ -269,6 +277,7 @@
 				9D5829CF182F8ECC009EB477 /* Images.xcassets in Resources */,
 				9D5829C1182F8ECC009EB477 /* InfoPlist.strings in Resources */,
 				9D5829CA182F8ECC009EB477 /* Main.storyboard in Resources */,
+				9D5829F3182FC9E6009EB477 /* testOrderList.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +331,7 @@
 			files = (
 				9D5829ED182F8F86009EB477 /* YGBaseModel.m in Sources */,
 				9D5829C7182F8ECC009EB477 /* YGAppDelegate.m in Sources */,
+				9D5829F6182FCD23009EB477 /* YGBaseRequest.m in Sources */,
 				9D5829CD182F8ECC009EB477 /* YGViewController.m in Sources */,
 				9D5829C3182F8ECC009EB477 /* main.m in Sources */,
 			);

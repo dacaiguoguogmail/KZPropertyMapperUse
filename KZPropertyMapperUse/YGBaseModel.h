@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "KZPropertyMapper.h"
 @interface YGBaseModel : NSObject
 
 @end
