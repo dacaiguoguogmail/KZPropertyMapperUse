@@ -1,0 +1,10 @@
+PODS:
+  - KZPropertyMapper (2.0)
+
+DEPENDENCIES:
+  - KZPropertyMapper
+
+SPEC CHECKSUMS:
+  KZPropertyMapper: 81c06f0c0760f42731a2b646f93802608d238872
+
+COCOAPODS: 0.27.1
