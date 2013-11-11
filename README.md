@@ -1,0 +1,4 @@
+KZPropertyMapperUse
+===================
+
+learn use KZProperty
