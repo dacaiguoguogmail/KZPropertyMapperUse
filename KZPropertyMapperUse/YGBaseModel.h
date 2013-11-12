@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "KZPropertyMapper.h"
-@interface YGBaseModel : NSObject
+@interface YGBaseModel : NSObject<NSCopying,NSCoding>
+
+@end
+
+@interface YGOrderDetailModel : YGBaseModel
+- (BOOL)isHasNext;
+- (void)setHasNext:(BOOL)hasNext;
+- (NSString *)message;
+- (void)setMessage:(NSString *)message;
 
 @end

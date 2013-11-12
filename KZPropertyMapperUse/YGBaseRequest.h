@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "AFNetworking.h"
+#import "YGBaseModel.h"
 @interface YGBaseRequest : NSObject
-+ (instancetype)requestOrderDetail;
++ (AFHTTPRequestOperation* )requestOrderDetailWithUrl:(NSURL *)url completionBlock:(void (^)(AFHTTPRequestOperation *operation,YGOrderDetailModel* responseObject))success
+                                              failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 @end
