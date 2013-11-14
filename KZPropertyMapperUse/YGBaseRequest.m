@@ -19,13 +19,12 @@
     #define NSLog(format, ...)
 #endif
 
-
-#define YKGDS_REQUEST(request,url,params,parserClass){\
-    NSLog(@"JSON: %@", responseObject);\
-    if ([[responseObject objectForKey:@"code"] integerValue]== YG_ERROR_CODE) {\
-        NSError* error=[NSError errorWithDomain:YG_SERVER_ERROR_DOMAIN code:\YG_ERROR_CODE_INVALID_RESPONSE_EXCEPTION userInfo:@{@"errorMessage": [responseObject objectForKey:@"message"]}];\
-    failure(operation, error);\
-}\
+#define YG_REQUEST(responseObject) {\
+NSLog(@"JSON: %@", responseObject);\
+    if([[responseObject objectForKey:@"code"] integerValue]== YG_ERROR_CODE){\
+        NSError* error=[NSError errorWithDomain:YG_SERVER_ERROR_DOMAIN code:YG_ERROR_CODE_INVALID_RESPONSE_EXCEPTION userInfo:@{@"errorMessage": [responseObject objectForKey:@"message"]}];\
+        failure(operation, error);\
+    }\
 }
 
 @implementation YGBaseRequest
@@ -36,11 +35,8 @@
     AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     op.responseSerializer = [AFJSONResponseSerializer serializer];
     [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
-        if ([[responseObject objectForKey:@"code"] integerValue]== YG_ERROR_CODE) {
-            NSError* error=[NSError errorWithDomain:YG_SERVER_ERROR_DOMAIN code:YG_ERROR_CODE_INVALID_RESPONSE_EXCEPTION userInfo:@{@"errorMessage": [responseObject objectForKey:@"message"]}];
-            failure(operation, error);
-        }
+        
+        YG_REQUEST(responseObject);
         YGOrderDetailModel *orderDetail = [[YGOrderDetailModel alloc] init];
         orderDetail.hasNext = [[responseObject objectForKey:@"hasNext"] boolValue];
         orderDetail.message = [responseObject objectForKey:@"message"];
