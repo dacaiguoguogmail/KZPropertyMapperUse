@@ -11,7 +11,6 @@
 #import "YGBaseRequest.h"
 @interface YGViewController ()
 - (IBAction)requestAction:(id)sender;
-@property (strong, nonatomic) AFHTTPRequestOperation* request;
 @end
 
 @implementation YGViewController
@@ -30,17 +29,12 @@
 }
 
 - (IBAction)requestAction:(id)sender {
-    [self.request cancel];
-    if (self.request) {
-        [self.request start];
-    }else{
-        NSURL *url = [[NSBundle mainBundle] URLForResource:@"testOrderList" withExtension:@"txt"];
-        self.request = [YGBaseRequest requestOrderDetailWithUrl:url completionBlock:^(AFHTTPRequestOperation *operation, YGOrderDetailModel* responseObject) {
-            
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            
-        }];
-    }
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"testOrderList" withExtension:@"txt"];
+    [YGBaseRequest requestOrderDetailWithUrl:url completionBlock:^(AFHTTPRequestOperation *operation, YGOrderDetailModel* responseObject) {
 
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+    }];
+    
 }
 @end
