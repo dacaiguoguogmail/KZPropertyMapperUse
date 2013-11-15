@@ -30,7 +30,7 @@
 
 - (IBAction)requestAction:(id)sender {
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"testOrderList" withExtension:@"txt"];
-    [YGBaseRequest requestOrderDetailWithUrl:url completionBlock:^(AFHTTPRequestOperation *operation, YGOrderDetailModel* responseObject) {
+    [YGBaseRequest requestOrderDetailWithUrl:url completionBlock:^(AFHTTPRequestOperation *operation, YGResponse* responseObject) {
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
