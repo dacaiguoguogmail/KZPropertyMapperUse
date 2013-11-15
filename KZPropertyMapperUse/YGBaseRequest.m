@@ -20,7 +20,7 @@
 #endif
 
 #define YG_REQUEST(responseObject) {\
-NSLog(@"JSON: %@", responseObject);\
+    NSLog(@"JSON: %@", responseObject);\
     if([[responseObject objectForKey:@"code"] integerValue]== YG_ERROR_CODE){\
         NSError* error=[NSError errorWithDomain:YG_SERVER_ERROR_DOMAIN code:YG_ERROR_CODE_INVALID_RESPONSE_EXCEPTION userInfo:@{@"errorMessage": [responseObject objectForKey:@"message"]}];\
         failure(operation, error);\
