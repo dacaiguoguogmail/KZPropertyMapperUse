@@ -7,14 +7,6 @@
 //
 
 #import "YGBaseModel.h"
-#define GETDEFINE(code)\
--(NSString *) code {\
-    return [self attributeForKey:@#code];\
-}
-#define SETDEFINE(code)\
-- (void)set##code:(NSString *)a##code{\
-    [self setAttribute:a##code forKey:@#code];\
-}
 
 
 
@@ -65,69 +57,66 @@
 - (void)encodeWithCoder:(NSCoder *)coder {
     [coder encodeObject:self.propertyDic forKey:NSStringFromSelector(@selector(propertyDic))];
 }
+#pragma mark - writeToFile
+-(BOOL) writeToFile:(NSString*) apath{
+    assert(apath!=nil);
+    return [NSKeyedArchiver archiveRootObject:self toFile:apath];
+}
++(instancetype) entityFromFile:(NSString*) apath{
+    assert(apath!=nil);
+    return [NSKeyedUnarchiver unarchiveObjectWithFile:apath];
 
-
+}
 @end
 
-@implementation YGOrderDetail
+#define YG_GETDEFINE(code)\
+-(id) code {\
+return [self attributeForkey:[@#code lowercaseString]];\
+}
 
-- (NSString *)arrivalDate{
-    return [self attributeForkey:@"arrivalDate"];
+#define YG_SETDEFINE(code)\
+- (void)set##code:(NSString *)a##code{\
+[self setAttribute:a##code forKey:[@#code lowercaseString]];\
 }
-- (void)setArrivalDate:(NSString *)arrivalDate{
-    [self setAttribute:arrivalDate forKey:@"arrivalDate"];
+
+#define YG_GETDEFINE_BOOL(code)\
+-(BOOL) code {\
+return [[self attributeForkey:[@#code lowercaseString]] boolValue];\
 }
-- (NSString *)cancelTime{
-    return [self attributeForkey:@"cancelTime"];
+
+#define YG_GETDEFINE_BOOL_IS(code)\
+-(BOOL) is##code {\
+return [[self attributeForkey:[@#code lowercaseString]] boolValue];\
 }
-- (void)setCancelTime:(NSString *)cancelTime{
-    [self setAttribute:cancelTime forKey:@"cancelTime"];
+
+#define YG_SETDEFINE_BOOL(code)\
+- (void)set##code:(BOOL)a##code{\
+[self setAttribute:[NSNumber numberWithBool:a##code] forKey:[@#code lowercaseString]];\
 }
-- (NSString *)confirmationType{
-    return [self attributeForkey:@"confirmationType"];
-}
-- (void)setConfirmationType:(NSString *)confirmationType{
-    [self setAttribute:confirmationType forKey:@"confirmationType"];
-}
-- (NSString *)hotelId{
-    return [self attributeForkey:@"hotelId"];
-}
-- (void)setHotelId:(NSString *)hotelId{
-    [self setAttribute:hotelId forKey:@"hotelId"];
-}
+
+@implementation YGOrderDetail
+YG_GETDEFINE(arrivalDate)
+YG_SETDEFINE(ArrivalDate)
+
+YG_GETDEFINE(cancelTime);
+YG_SETDEFINE(CancelTime);
+
+YG_GETDEFINE(confirmationType);
+YG_SETDEFINE(ConfirmationType);
+
+YG_GETDEFINE(hotelId);
+YG_SETDEFINE(HotelId);
+
 @end
 
 @implementation YGOrderList
 
-- (BOOL)isHasNext{
-    return [[self.propertyDic objectForKey:@"hasNext"] boolValue];
-}
+YG_GETDEFINE(orderDetailResults);
+YG_SETDEFINE(OrderDetailResults);
 
-- (void)setHasNext:(BOOL)hasNext{
-    [self.propertyDic setObject:[NSNumber numberWithBool:hasNext] forKey:@"hasNext"];
-}
+YG_GETDEFINE_BOOL_IS(HasNext);
+YG_SETDEFINE_BOOL(HasNext);
 
-- (NSString *)message{
-    return [self.propertyDic objectForKey:@"message"];
-}
-- (void)setMessage:(NSString *)message{
-    [self.propertyDic setObject:message forKey:@"message"];
-}
-
-- (void)setOrderDetailResults:(YGOrderDetailResults *)orders{
-    [self.propertyDic setObject:orders forKey:@"orderDetailResults"];
-}
-
-- (YGOrderDetailResults*)orderDetailResults{
-    return [self.propertyDic objectForKey:@"orderDetailResults"];
-}
-
-- (void)setHotelId:(NSString *)hotelId{
-    [self setAttribute:hotelId forKey:@"hotelId"];
-}
-- (NSString *)hotelId{
-    return [self attributeForkey:@"hotelId"];
-}
 
 @end
 

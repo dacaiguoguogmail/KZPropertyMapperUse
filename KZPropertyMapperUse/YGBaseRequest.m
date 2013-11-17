@@ -32,7 +32,7 @@
 
 @implementation YGBaseRequest
 
-+ (AFHTTPRequestOperation* )requestOrderDetailWithUrl:(NSURL *)url completionBlock:(void (^)(AFHTTPRequestOperation *operation, YGResponse* responseObject))success
++ (AFHTTPRequestOperation* )requestOrderListWithUrl:(NSURL *)url completionBlock:(void (^)(AFHTTPRequestOperation *operation, YGResponse* responseObject))success
                                               failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] init];
     YG_REQUEST(responseObject,url,op,YGOrderListParse);

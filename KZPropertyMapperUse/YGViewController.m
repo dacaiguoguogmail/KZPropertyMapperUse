@@ -20,6 +20,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    YGOrderList *orderList = nil;
+    NSString *path = nil;
+    path = [NSString stringWithFormat:@"%@/Documents/orderList.plist",NSHomeDirectory()];
+    NSLog(@"path:%@",path);
+    orderList = [YGOrderList entityFromFile:path];
+    NSLog(@"list:%@",orderList.orderDetailResults);
+
+    
     YGVerticalAlignmentLabel *verAlignLabel = [[YGVerticalAlignmentLabel alloc] initWithFrame:CGRectMake(100, 20, 100, 20)];
     verAlignLabel.text = @"YGVerticalAlignmentLabelYGVerticalAlignmentLabelYGVerticalAlignmentLabel";
     verAlignLabel.numberOfLines = 0;
@@ -37,9 +45,10 @@
 
 - (IBAction)requestAction:(id)sender {
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"testOrderList" withExtension:@"txt"];
-    [YGBaseRequest requestOrderDetailWithUrl:url completionBlock:^(AFHTTPRequestOperation *operation, YGResponse* responseObject) {
+    [YGBaseRequest requestOrderListWithUrl:url completionBlock:^(AFHTTPRequestOperation *operation, YGResponse* responseObject) {
         YGOrderList *orderList = responseObject.responseObj;
         NSLog(@"%@",orderList.orderDetailResults);
+
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
     }];

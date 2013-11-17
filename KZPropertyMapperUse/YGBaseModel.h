@@ -106,7 +106,10 @@
 #define hah - (NSString *)ss;
 #import <Foundation/Foundation.h>
 @interface YGBaseModel : NSObject<NSCopying,NSCoding>
-
+- (void)setAttribute:(id)obj forKey:(id <NSCopying>)key;
+- (id)attributeForkey:(id<NSCopying>)key;
+-(BOOL)writeToFile:(NSString*) apath;
++(instancetype)entityFromFile:(NSString*) apath;
 @end
 
 @interface YGOrderDetail : YGBaseModel
