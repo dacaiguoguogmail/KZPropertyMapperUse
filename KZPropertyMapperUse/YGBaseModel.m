@@ -7,13 +7,33 @@
 //
 
 #import "YGBaseModel.h"
+#define GETDEFINE(code)\
+-(NSString *) code {\
+    return [self attributeForKey:@#code];\
+}
+#define SETDEFINE(code)\
+- (void)set##code:(NSString *)a##code{\
+    [self setAttribute:a##code forKey:@#code];\
+}
+
+
 
 @interface YGBaseModel ()
 @property (nonatomic, strong) NSMutableDictionary *propertyDic;
+
 @end
 
 @implementation YGBaseModel
+#pragma mark - set&get
+- (void)setAttribute:(id)obj forKey:(id <NSCopying>)key{
+    [self.propertyDic setObject:obj forKey:key];
+}
 
+- (id)attributeForkey:(id<NSCopying>)key{
+    return [self.propertyDic objectForKey:key];
+}
+
+#pragma mark - init
 - (id)init{
     self = [super init];
     if (self) {
@@ -49,7 +69,35 @@
 
 @end
 
-@implementation YGOrderDetailModel
+@implementation YGOrderDetail
+
+- (NSString *)arrivalDate{
+    return [self attributeForkey:@"arrivalDate"];
+}
+- (void)setArrivalDate:(NSString *)arrivalDate{
+    [self setAttribute:arrivalDate forKey:@"arrivalDate"];
+}
+- (NSString *)cancelTime{
+    return [self attributeForkey:@"cancelTime"];
+}
+- (void)setCancelTime:(NSString *)cancelTime{
+    [self setAttribute:cancelTime forKey:@"cancelTime"];
+}
+- (NSString *)confirmationType{
+    return [self attributeForkey:@"confirmationType"];
+}
+- (void)setConfirmationType:(NSString *)confirmationType{
+    [self setAttribute:confirmationType forKey:@"confirmationType"];
+}
+- (NSString *)hotelId{
+    return [self attributeForkey:@"hotelId"];
+}
+- (void)setHotelId:(NSString *)hotelId{
+    [self setAttribute:hotelId forKey:@"hotelId"];
+}
+@end
+
+@implementation YGOrderList
 
 - (BOOL)isHasNext{
     return [[self.propertyDic objectForKey:@"hasNext"] boolValue];
@@ -64,6 +112,21 @@
 }
 - (void)setMessage:(NSString *)message{
     [self.propertyDic setObject:message forKey:@"message"];
+}
+
+- (void)setOrderDetailResults:(YGOrderDetailResults *)orders{
+    [self.propertyDic setObject:orders forKey:@"orderDetailResults"];
+}
+
+- (YGOrderDetailResults*)orderDetailResults{
+    return [self.propertyDic objectForKey:@"orderDetailResults"];
+}
+
+- (void)setHotelId:(NSString *)hotelId{
+    [self setAttribute:hotelId forKey:@"hotelId"];
+}
+- (NSString *)hotelId{
+    return [self attributeForkey:@"hotelId"];
 }
 
 @end

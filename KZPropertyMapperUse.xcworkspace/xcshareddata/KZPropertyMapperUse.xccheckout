@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>223EACBB-E979-4ECA-80F6-5C6F36BA263B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>KZPropertyMapperUse</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5119DEBE-90AA-42D8-BA94-548138CF9A5A</key>
+		<string>https://github.com/dacaiguoguo/KZPropertyMapperUse.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>KZPropertyMapperUse.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5119DEBE-90AA-42D8-BA94-548138CF9A5A</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/dacaiguoguo/KZPropertyMapperUse.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5119DEBE-90AA-42D8-BA94-548138CF9A5A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5119DEBE-90AA-42D8-BA94-548138CF9A5A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>KZPropertyMapperUse</string>
+		</dict>
+	</array>
+</dict>
+</plist>

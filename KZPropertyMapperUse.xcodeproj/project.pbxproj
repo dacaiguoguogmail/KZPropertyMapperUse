@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D07C2B618379B5700BA111F /* YGVerticalAlignmentLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D07C2B518379B5700BA111F /* YGVerticalAlignmentLabel.m */; };
+		9D07C2BA183868FA00BA111F /* YGBaseParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D07C2B9183868FA00BA111F /* YGBaseParse.m */; };
+		9D07C2BD18386A3700BA111F /* YGResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D07C2BC18386A3700BA111F /* YGResponse.m */; };
 		9D5829B7182F8ECC009EB477 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D5829B6182F8ECC009EB477 /* Foundation.framework */; };
 		9D5829B9182F8ECC009EB477 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D5829B8182F8ECC009EB477 /* CoreGraphics.framework */; };
 		9D5829BB182F8ECC009EB477 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D5829BA182F8ECC009EB477 /* UIKit.framework */; };
@@ -40,6 +43,12 @@
 /* Begin PBXFileReference section */
 		24FBBDF0614E4D23BF65E3E9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		9CA5435488FA4D92BF62A939 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D07C2B418379B5700BA111F /* YGVerticalAlignmentLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGVerticalAlignmentLabel.h; sourceTree = "<group>"; };
+		9D07C2B518379B5700BA111F /* YGVerticalAlignmentLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGVerticalAlignmentLabel.m; sourceTree = "<group>"; };
+		9D07C2B8183868FA00BA111F /* YGBaseParse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGBaseParse.h; sourceTree = "<group>"; };
+		9D07C2B9183868FA00BA111F /* YGBaseParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGBaseParse.m; sourceTree = "<group>"; };
+		9D07C2BB18386A3700BA111F /* YGResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGResponse.h; sourceTree = "<group>"; };
+		9D07C2BC18386A3700BA111F /* YGResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGResponse.m; sourceTree = "<group>"; };
 		9D5829B3182F8ECC009EB477 /* KZPropertyMapperUse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KZPropertyMapperUse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D5829B6182F8ECC009EB477 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9D5829B8182F8ECC009EB477 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -91,6 +100,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9D07C2B718379B9600BA111F /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				9D07C2B418379B5700BA111F /* YGVerticalAlignmentLabel.h */,
+				9D07C2B518379B5700BA111F /* YGVerticalAlignmentLabel.m */,
+			);
+			name = CustomView;
+			sourceTree = "<group>";
+		};
 		9D5829AA182F8ECC009EB477 = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				9D5829EE182F8FA1009EB477 /* Application */,
+				9D07C2B718379B9600BA111F /* CustomView */,
 				9D5829EF182F8FBD009EB477 /* ViewController */,
 				9D5829F0182F8FD0009EB477 /* Model */,
 				9D5829F1182F8FEB009EB477 /* Rescouce */,
@@ -182,6 +201,10 @@
 				9D5829EC182F8F86009EB477 /* YGBaseModel.m */,
 				9D5829F4182FCD23009EB477 /* YGBaseRequest.h */,
 				9D5829F5182FCD23009EB477 /* YGBaseRequest.m */,
+				9D07C2B8183868FA00BA111F /* YGBaseParse.h */,
+				9D07C2B9183868FA00BA111F /* YGBaseParse.m */,
+				9D07C2BB18386A3700BA111F /* YGResponse.h */,
+				9D07C2BC18386A3700BA111F /* YGResponse.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -334,6 +357,9 @@
 				9D5829F6182FCD23009EB477 /* YGBaseRequest.m in Sources */,
 				9D5829CD182F8ECC009EB477 /* YGViewController.m in Sources */,
 				9D5829C3182F8ECC009EB477 /* main.m in Sources */,
+				9D07C2BA183868FA00BA111F /* YGBaseParse.m in Sources */,
+				9D07C2BD18386A3700BA111F /* YGResponse.m in Sources */,
+				9D07C2B618379B5700BA111F /* YGVerticalAlignmentLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

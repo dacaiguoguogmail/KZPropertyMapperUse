@@ -7,76 +7,35 @@
 //
 
 #import "YGBaseRequest.h"
-#define YG_REQUEST_LOG 1
-#define YG_ERROR_CODE @"-1"
-#define YG_SUCCESS_CODE @"1"
-#define YG_SERVER_ERROR_DOMAIN @"com.datasource.server"
-#define YG_ERROR_CODE_INVALID_RESPONSE_EXCEPTION 1001
+#import "YGBaseParse.h"
 
-#if(YG_REQUEST_LOG)
-    #define NSLog(format, ...) NSLog(format, ## __VA_ARGS__)
-#else
-    #define NSLog(format, ...)
-#endif
 
-#define YG_REQUEST(responseObject) {\
-    NSLog(@"JSON: %@", responseObject);\
-    if([[responseObject objectForKey:@"code"] isEqualToString:YG_ERROR_CODE]){\
-        NSError* error=[NSError errorWithDomain:YG_SERVER_ERROR_DOMAIN code:YG_ERROR_CODE_INVALID_RESPONSE_EXCEPTION userInfo:@{@"errorMessage": [responseObject objectForKey:@"message"]}];\
+#define YG_REQUEST(responseObject,url,op,paserClass) {\
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];\
+    op = [[AFHTTPRequestOperation alloc] initWithRequest:request];\
+    op.responseSerializer = [AFJSONResponseSerializer serializer];\
+    [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {\
+        paserClass *paser = [[paserClass alloc] init];\
+        YGResponse *response = [paser parseFromJson:responseObject];\
+        if ([response.result isEqualToString:YG_ERROR_CODE]) {\
+            NSError* error=[NSError errorWithDomain:YG_SERVER_ERROR_DOMAIN code:YG_ERROR_CODE_INVALID_RESPONSE_EXCEPTION userInfo:@{@"message": [responseObject objectForKey:@"message"]}];\
+            failure(operation, error);\
+        }\
+        success(operation, response);\
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {\
         failure(operation, error);\
-    }\
-}
-@implementation YGResponse
-
-@end
-
-@implementation YGBaseParse
-
--(YGResponse*) parseFromJson:(id) jsonObj{
-    YGResponse *base = [[YGResponse alloc] init];
-    base.message = [jsonObj objectForKey:@"message"];
-    base.result = [jsonObj objectForKey:@"code"];
-    base.responseObj = [jsonObj objectForKey:@"data"];
-    return base;
+    }];\
 }
 
-@end
 
-@implementation YGOrderDetailParse
-
--(YGResponse*) parseFromJson:(id) jsonObj{
-   YGResponse *base =  [super parseFromJson:jsonObj];
-    NSDictionary *tempReaponseObj = nil;
-    if ([base.result isEqualToString:YG_SUCCESS_CODE]&&[base.responseObj isKindOfClass:[NSDictionary class]]&&[base.responseObj count]>0) {
-        [self paserResponseObjTo:&tempReaponseObj];
-    }
-    base.responseObj = tempReaponseObj;
-    return base;
-}
-
-- (void)paserResponseObjTo:(NSDictionary **)dic{
-    *dic = @{@"a": @"1"};
-}
-@end
 
 
 @implementation YGBaseRequest
 
 + (AFHTTPRequestOperation* )requestOrderDetailWithUrl:(NSURL *)url completionBlock:(void (^)(AFHTTPRequestOperation *operation, YGResponse* responseObject))success
                                               failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    op.responseSerializer = [AFJSONResponseSerializer serializer];
-    [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        YG_REQUEST(responseObject);
-        YGOrderDetailParse *paser = [[YGOrderDetailParse alloc] init];
-        YGResponse *response = [paser parseFromJson:responseObject];
-        success(operation, response);
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        failure(operation, error);
-        NSLog(@"Error: %@", error);
-    }];
+    AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] init];
+    YG_REQUEST(responseObject,url,op,YGOrderListParse);
     [[NSOperationQueue mainQueue] addOperation:op];
     return op;
 }
