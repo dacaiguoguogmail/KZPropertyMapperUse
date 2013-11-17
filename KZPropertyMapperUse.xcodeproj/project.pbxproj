@@ -10,6 +10,7 @@
 		9D07C2B618379B5700BA111F /* YGVerticalAlignmentLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D07C2B518379B5700BA111F /* YGVerticalAlignmentLabel.m */; };
 		9D07C2BA183868FA00BA111F /* YGBaseParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D07C2B9183868FA00BA111F /* YGBaseParse.m */; };
 		9D07C2BD18386A3700BA111F /* YGResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D07C2BC18386A3700BA111F /* YGResponse.m */; };
+		9D07C2C2183894F200BA111F /* 3-4我的酒店订单.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D07C2C1183894F200BA111F /* 3-4我的酒店订单.png */; };
 		9D5829B7182F8ECC009EB477 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D5829B6182F8ECC009EB477 /* Foundation.framework */; };
 		9D5829B9182F8ECC009EB477 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D5829B8182F8ECC009EB477 /* CoreGraphics.framework */; };
 		9D5829BB182F8ECC009EB477 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D5829BA182F8ECC009EB477 /* UIKit.framework */; };
@@ -49,6 +50,7 @@
 		9D07C2B9183868FA00BA111F /* YGBaseParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGBaseParse.m; sourceTree = "<group>"; };
 		9D07C2BB18386A3700BA111F /* YGResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGResponse.h; sourceTree = "<group>"; };
 		9D07C2BC18386A3700BA111F /* YGResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGResponse.m; sourceTree = "<group>"; };
+		9D07C2C1183894F200BA111F /* 3-4我的酒店订单.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3-4我的酒店订单.png"; sourceTree = "<group>"; };
 		9D5829B3182F8ECC009EB477 /* KZPropertyMapperUse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KZPropertyMapperUse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D5829B6182F8ECC009EB477 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9D5829B8182F8ECC009EB477 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -212,6 +214,7 @@
 		9D5829F1182F8FEB009EB477 /* Rescouce */ = {
 			isa = PBXGroup;
 			children = (
+				9D07C2C1183894F200BA111F /* 3-4我的酒店订单.png */,
 				9D5829F2182FC9E6009EB477 /* testOrderList.txt */,
 				9D5829CE182F8ECC009EB477 /* Images.xcassets */,
 			);
@@ -300,6 +303,7 @@
 				9D5829CF182F8ECC009EB477 /* Images.xcassets in Resources */,
 				9D5829C1182F8ECC009EB477 /* InfoPlist.strings in Resources */,
 				9D5829CA182F8ECC009EB477 /* Main.storyboard in Resources */,
+				9D07C2C2183894F200BA111F /* 3-4我的酒店订单.png in Resources */,
 				9D5829F3182FC9E6009EB477 /* testOrderList.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

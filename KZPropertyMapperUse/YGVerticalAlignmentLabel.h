@@ -32,3 +32,9 @@ typedef NS_ENUM(NSInteger, YGTextVerticalAlignment) {
 - (void)setVerticalAlignment:(YGTextVerticalAlignment)verticalAlignment;
 
 @end
+
+@interface UIView (showBorder)
+- (void)showBorder;
+@end
+
+

@@ -11,17 +11,6 @@
 #import "YGBaseRequest.h"
 #import "YGVerticalAlignmentLabel.h"
 
-void debugView(UIView *av){
-#if TARGET_IPHONE_SIMULATOR
-    av.layer.borderWidth = 1.;
-    [av.subviews enumerateObjectsUsingBlock:^(UIView* obj, NSUInteger idx, BOOL *stop) {
-        obj.layer.borderWidth = 1.;
-        obj.layer.borderColor = [[UIColor colorWithRed:.8 green:.3 blue:.6 alpha:1.] CGColor];
-    }];
-#elif TARGET_OS_IPHONE
-    
-#endif
-}
 
 @interface YGViewController ()
 - (IBAction)requestAction:(id)sender;
@@ -45,7 +34,7 @@ void debugView(UIView *av){
     verAlignLabel.numberOfLines = 0;
 //    verAlignLabel.verticalAlignment = YGTextVerticalAlignmentTop;
     [self.view addSubview:verAlignLabel];
-    debugView(self.view);
+    [self.view showBorder];
 
 	// Do any additional setup after loading the view, typically from a nib.
 }

@@ -20,13 +20,16 @@ PODS:
   - AFNetworking/UIKit (2.0.2):
     - AFNetworking/NSURLConnection
   - KZPropertyMapper (2.0)
+  - MCUIColorUtils (1.0.0)
 
 DEPENDENCIES:
   - AFNetworking
   - KZPropertyMapper
+  - MCUIColorUtils
 
 SPEC CHECKSUMS:
   AFNetworking: 22de50ae71ab1c4859773f61068d6fcd1d8f9a4d
   KZPropertyMapper: 81c06f0c0760f42731a2b646f93802608d238872
+  MCUIColorUtils: 339761b4aedb0c2cfaf8ce1cd441bcceee115ea1
 
-COCOAPODS: 0.22.3
+COCOAPODS: 0.27.1
