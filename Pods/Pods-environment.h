@@ -60,3 +60,9 @@
 #define COCOAPODS_VERSION_MINOR_MCUIColorUtils 0
 #define COCOAPODS_VERSION_PATCH_MCUIColorUtils 0
 
+// TWSReleaseNotesView
+#define COCOAPODS_POD_AVAILABLE_TWSReleaseNotesView
+#define COCOAPODS_VERSION_MAJOR_TWSReleaseNotesView 1
+#define COCOAPODS_VERSION_MINOR_TWSReleaseNotesView 1
+#define COCOAPODS_VERSION_PATCH_TWSReleaseNotesView 1
+

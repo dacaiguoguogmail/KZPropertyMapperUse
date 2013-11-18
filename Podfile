@@ -2,4 +2,4 @@ platform :ios, '6.0'
 pod 'KZPropertyMapper'
 pod 'AFNetworking'
 pod 'MCUIColorUtils'
-
+pod 'TWSReleaseNotesView', '~> 1.1.1'
