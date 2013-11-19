@@ -10,7 +10,7 @@
 #import "YGBaseParse.h"
 
 
-#define YG_REQUEST(responseObject,url,op,paserClass) {\
+#define YG_REQUEST_VALIDATION(responseObject,url,op,paserClass) {\
     NSURLRequest *request = [NSURLRequest requestWithURL:url];\
     op = [[AFHTTPRequestOperation alloc] initWithRequest:request];\
     op.responseSerializer = [AFJSONResponseSerializer serializer];\
@@ -35,8 +35,7 @@
 + (AFHTTPRequestOperation* )requestOrderListWithUrl:(NSURL *)url completionBlock:(void (^)(AFHTTPRequestOperation *operation, YGResponse* responseObject))success
                                               failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] init];
-    YG_REQUEST(responseObject,url,op,YGOrderListParse);
-    [[NSOperationQueue mainQueue] addOperation:op];
+    YG_REQUEST_VALIDATION(responseObject,url,op,YGOrderListParse);
     return op;
 }
 
