@@ -36,14 +36,13 @@
     [self.view addSubview:verAlignLabel];
     [self.view showBorder];
 
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
+
 
 - (IBAction)requestAction:(id)sender {
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"testOrderList" withExtension:@"txt"];

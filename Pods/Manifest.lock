@@ -1,38 +1,39 @@
 PODS:
-  - AFNetworking (2.0.2):
+  - AFNetworking (2.0.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
     - AFNetworking/UIKit
-  - AFNetworking/NSURLConnection (2.0.2):
+  - AFNetworking/NSURLConnection (2.0.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.0.2):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.0.2)
-  - AFNetworking/Security (2.0.2)
-  - AFNetworking/Serialization (2.0.2)
-  - AFNetworking/UIKit (2.0.2):
+  - AFNetworking/NSURLSession (2.0.3):
+    - AFNetworking/NSURLConnection
+  - AFNetworking/Reachability (2.0.3)
+  - AFNetworking/Security (2.0.3)
+  - AFNetworking/Serialization (2.0.3)
+  - AFNetworking/UIKit (2.0.3):
     - AFNetworking/NSURLConnection
   - KZPropertyMapper (2.0)
   - MCUIColorUtils (1.0.0)
+  - RegexKitLite (4.0)
   - TWSReleaseNotesView (1.1.1)
 
 DEPENDENCIES:
-  - AFNetworking
-  - KZPropertyMapper
-  - MCUIColorUtils
+  - AFNetworking (~> 2.0.3)
+  - KZPropertyMapper (~> 2.0)
+  - MCUIColorUtils (~> 1.0.0)
+  - RegexKitLite (~> 4.0)
   - TWSReleaseNotesView (~> 1.1.1)
 
 SPEC CHECKSUMS:
-  AFNetworking: 22de50ae71ab1c4859773f61068d6fcd1d8f9a4d
+  AFNetworking: e499052cbf3d743e9bb727bb37adb9dc2547ba15
   KZPropertyMapper: 81c06f0c0760f42731a2b646f93802608d238872
   MCUIColorUtils: 339761b4aedb0c2cfaf8ce1cd441bcceee115ea1
+  RegexKitLite: f7af7b4d2b675cd2ec9a4abab6aad6ae1f6499c0
   TWSReleaseNotesView: 05aaf5bb00a7bde90f3b7185f74a5302f3519acd
 
-COCOAPODS: 0.22.3
+COCOAPODS: 0.28.0
