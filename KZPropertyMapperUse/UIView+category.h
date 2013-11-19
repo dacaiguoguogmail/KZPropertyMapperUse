@@ -11,3 +11,8 @@
 @interface UIView (category)
 
 @end
+
+
+@interface UIView (showBorder)
+- (void)showBorder;
+@end

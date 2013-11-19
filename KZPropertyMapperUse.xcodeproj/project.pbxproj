@@ -28,6 +28,7 @@
 		9D5829ED182F8F86009EB477 /* YGBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5829EC182F8F86009EB477 /* YGBaseModel.m */; };
 		9D5829F3182FC9E6009EB477 /* testOrderList.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9D5829F2182FC9E6009EB477 /* testOrderList.txt */; };
 		9D5829F6182FCD23009EB477 /* YGBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5829F5182FCD23009EB477 /* YGBaseRequest.m */; };
+		A8A0471A183B00F400E96F52 /* UIView+category.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A04719183B00F400E96F52 /* UIView+category.m */; };
 		D940702EA15349A5B27A0CC7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA5435488FA4D92BF62A939 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,8 @@
 		9D5829F2182FC9E6009EB477 /* testOrderList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testOrderList.txt; sourceTree = "<group>"; };
 		9D5829F4182FCD23009EB477 /* YGBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGBaseRequest.h; sourceTree = "<group>"; };
 		9D5829F5182FCD23009EB477 /* YGBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGBaseRequest.m; sourceTree = "<group>"; };
+		A8A04718183B00F400E96F52 /* UIView+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+category.h"; sourceTree = "<group>"; };
+		A8A04719183B00F400E96F52 /* UIView+category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+category.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,8 @@
 			children = (
 				9D07C2B418379B5700BA111F /* YGVerticalAlignmentLabel.h */,
 				9D07C2B518379B5700BA111F /* YGVerticalAlignmentLabel.m */,
+				A8A04718183B00F400E96F52 /* UIView+category.h */,
+				A8A04719183B00F400E96F52 /* UIView+category.m */,
 			);
 			name = CustomView;
 			sourceTree = "<group>";
@@ -360,6 +365,7 @@
 				9D5829C7182F8ECC009EB477 /* YGAppDelegate.m in Sources */,
 				9D5829F6182FCD23009EB477 /* YGBaseRequest.m in Sources */,
 				9D5829CD182F8ECC009EB477 /* YGViewController.m in Sources */,
+				A8A0471A183B00F400E96F52 /* UIView+category.m in Sources */,
 				9D5829C3182F8ECC009EB477 /* main.m in Sources */,
 				9D07C2BA183868FA00BA111F /* YGBaseParse.m in Sources */,
 				9D07C2BD18386A3700BA111F /* YGResponse.m in Sources */,

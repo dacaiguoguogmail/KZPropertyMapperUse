@@ -10,7 +10,8 @@
 #import "AFNetWorking.h"
 #import "YGBaseRequest.h"
 #import "YGVerticalAlignmentLabel.h"
-
+#import "RegexKitLite.h"
+#import "UIView+category.h"
 
 @interface YGViewController ()
 - (IBAction)requestAction:(id)sender;
@@ -35,6 +36,33 @@
 //    verAlignLabel.verticalAlignment = YGTextVerticalAlignmentTop;
     [self.view addSubview:verAlignLabel];
     [self.view showBorder];
+    [self testRegexkit];
+}
+
+- (void)testRegexkit{
+    NSString *phoneRegex = @"\\d{3}-\\d{8}|\\d{4}-\\d{7}";
+//    NSString *phoneRegex = @"^(13[0-9]|14[0-9]|15[0-9]|18[0-9])\\d{8}$";
+
+//    - (NSString *)RKL_METHOD_PREPEND(stringByMatching):(NSString *)regex;
+    NSString *test = @"0212-22334444,我 0311-99043333，13300002222";
+//    NSString *test = @"13300002222";
+
+    test = [test stringByMatching:phoneRegex];
+    NSLog(@"test%@",test);
+    
+    
+    NSString *phone = @"0212-22331234*,我 0311-99043333，13300002222";
+    NSCharacterSet *set = [NSCharacterSet characterSetWithCharactersInString:@"0123456789-"];
+    int j = [phone length];
+    for (int i=0; i<[phone length]; i++) {
+        unichar ch = [phone characterAtIndex:i];
+        if (![set characterIsMember:ch]) {
+            j = i;
+            break;
+        }
+    }
+    phone = [phone substringWithRange:NSMakeRange(0, j)];
+    NSLog(@"phone:%@",phone);
 
 }
 
