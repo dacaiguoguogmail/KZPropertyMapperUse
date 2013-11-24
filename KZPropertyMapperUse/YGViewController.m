@@ -40,6 +40,9 @@
 }
 
 - (void)testRegexkit{
+    
+    NSString *postJsion = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://localhost/phpPost/json.php"] encoding:NSUTF8StringEncoding error:nil];
+    NSLog(@"postJsion:\n%@",postJsion);
     NSString *phoneRegex = @"\\d{3}-\\d{8}|\\d{4}-\\d{7}";
 //    NSString *phoneRegex = @"^(13[0-9]|14[0-9]|15[0-9]|18[0-9])\\d{8}$";
 
