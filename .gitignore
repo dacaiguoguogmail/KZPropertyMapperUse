@@ -22,3 +22,7 @@ DerivedData
 *.xcuserstate
 
 KZPropertyMapperUse.xcworkspace/xcuserdata/zhangxiaomei.xcuserdatad/UserInterfaceState.xcuserstate
+
+*.xccheckout
+
+*.xccheckout
