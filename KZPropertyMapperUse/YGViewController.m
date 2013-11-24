@@ -76,6 +76,7 @@
 
 
 - (IBAction)requestAction:(id)sender {
+    [self.requestManager p]
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"testOrderList" withExtension:@"txt"];
     [YGBaseRequest requestOrderListWithUrl:url completionBlock:^(AFHTTPRequestOperation *operation, YGResponse* responseObject) {
         YGOrderList *orderList = responseObject.responseObj;

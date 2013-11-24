@@ -28,6 +28,10 @@
 		9D5829ED182F8F86009EB477 /* YGBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5829EC182F8F86009EB477 /* YGBaseModel.m */; };
 		9D5829F3182FC9E6009EB477 /* testOrderList.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9D5829F2182FC9E6009EB477 /* testOrderList.txt */; };
 		9D5829F6182FCD23009EB477 /* YGBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5829F5182FCD23009EB477 /* YGBaseRequest.m */; };
+		9DE7DBDA1841CBBC00B64F0A /* YGBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE7DBD91841CBBC00B64F0A /* YGBaseViewController.m */; };
+		9DE7DBDD1841F29E00B64F0A /* YGConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE7DBDC1841F29E00B64F0A /* YGConfig.m */; };
+		9DE7DBE51841F58B00B64F0A /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE7DBE21841F58B00B64F0A /* SFHFKeychainUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9DE7DBE61841F58B00B64F0A /* SFHFLoginUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DE7DBE41841F58B00B64F0A /* SFHFLoginUtil.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A8A0471A183B00F400E96F52 /* UIView+category.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A04719183B00F400E96F52 /* UIView+category.m */; };
 		D940702EA15349A5B27A0CC7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA5435488FA4D92BF62A939 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -76,6 +80,17 @@
 		9D5829F2182FC9E6009EB477 /* testOrderList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testOrderList.txt; sourceTree = "<group>"; };
 		9D5829F4182FCD23009EB477 /* YGBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGBaseRequest.h; sourceTree = "<group>"; };
 		9D5829F5182FCD23009EB477 /* YGBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGBaseRequest.m; sourceTree = "<group>"; };
+		9DE7DBD81841CBBC00B64F0A /* YGBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGBaseViewController.h; sourceTree = "<group>"; };
+		9DE7DBD91841CBBC00B64F0A /* YGBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGBaseViewController.m; sourceTree = "<group>"; };
+		9DE7DBDB1841F29E00B64F0A /* YGConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGConfig.h; sourceTree = "<group>"; };
+		9DE7DBDC1841F29E00B64F0A /* YGConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGConfig.m; sourceTree = "<group>"; };
+		9DE7DBE11841F58B00B64F0A /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
+		9DE7DBE21841F58B00B64F0A /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
+		9DE7DBE31841F58B00B64F0A /* SFHFLoginUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFLoginUtil.h; sourceTree = "<group>"; };
+		9DE7DBE41841F58B00B64F0A /* SFHFLoginUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFLoginUtil.m; sourceTree = "<group>"; };
+		9DE7DBE71842002E00B64F0A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		9DE7DBE81842002E00B64F0A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		9DE7DBE91842002E00B64F0A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		A8A04718183B00F400E96F52 /* UIView+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+category.h"; sourceTree = "<group>"; };
 		A8A04719183B00F400E96F52 /* UIView+category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+category.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -153,9 +168,9 @@
 			children = (
 				9D5829EE182F8FA1009EB477 /* Application */,
 				9D07C2B718379B9600BA111F /* CustomView */,
-				9D5829EF182F8FBD009EB477 /* ViewController */,
 				9D5829F0182F8FD0009EB477 /* Model */,
 				9D5829F1182F8FEB009EB477 /* Rescouce */,
+				9D5829EF182F8FBD009EB477 /* ViewController */,
 			);
 			path = KZPropertyMapperUse;
 			sourceTree = "<group>";
@@ -164,29 +179,22 @@
 			isa = PBXGroup;
 			children = (
 				9D5829E1182F8ECC009EB477 /* KZPropertyMapperUseTests.m */,
-				9D5829DC182F8ECC009EB477 /* Supporting Files */,
-			);
-			path = KZPropertyMapperUseTests;
-			sourceTree = "<group>";
-		};
-		9D5829DC182F8ECC009EB477 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
 				9D5829DD182F8ECC009EB477 /* KZPropertyMapperUseTests-Info.plist */,
 				9D5829DE182F8ECC009EB477 /* InfoPlist.strings */,
 			);
-			name = "Supporting Files";
+			path = KZPropertyMapperUseTests;
 			sourceTree = "<group>";
 		};
 		9D5829EE182F8FA1009EB477 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				9D5829BE182F8ECC009EB477 /* KZPropertyMapperUse-Info.plist */,
+				9D5829C4182F8ECC009EB477 /* KZPropertyMapperUse-Prefix.pch */,
+				9D5829C2182F8ECC009EB477 /* main.m */,
 				9D5829C5182F8ECC009EB477 /* YGAppDelegate.h */,
 				9D5829C6182F8ECC009EB477 /* YGAppDelegate.m */,
-				9D5829BE182F8ECC009EB477 /* KZPropertyMapperUse-Info.plist */,
-				9D5829BF182F8ECC009EB477 /* InfoPlist.strings */,
-				9D5829C2182F8ECC009EB477 /* main.m */,
-				9D5829C4182F8ECC009EB477 /* KZPropertyMapperUse-Prefix.pch */,
+				9DE7DBDB1841F29E00B64F0A /* YGConfig.h */,
+				9DE7DBDC1841F29E00B64F0A /* YGConfig.m */,
 			);
 			name = Application;
 			sourceTree = "<group>";
@@ -195,6 +203,8 @@
 			isa = PBXGroup;
 			children = (
 				9D5829C8182F8ECC009EB477 /* Main.storyboard */,
+				9DE7DBD81841CBBC00B64F0A /* YGBaseViewController.h */,
+				9DE7DBD91841CBBC00B64F0A /* YGBaseViewController.m */,
 				9D5829CB182F8ECC009EB477 /* YGViewController.h */,
 				9D5829CC182F8ECC009EB477 /* YGViewController.m */,
 			);
@@ -219,6 +229,11 @@
 		9D5829F1182F8FEB009EB477 /* Rescouce */ = {
 			isa = PBXGroup;
 			children = (
+				9DE7DBE11841F58B00B64F0A /* SFHFKeychainUtils.h */,
+				9DE7DBE21841F58B00B64F0A /* SFHFKeychainUtils.m */,
+				9DE7DBE31841F58B00B64F0A /* SFHFLoginUtil.h */,
+				9DE7DBE41841F58B00B64F0A /* SFHFLoginUtil.m */,
+				9D5829BF182F8ECC009EB477 /* InfoPlist.strings */,
 				9D07C2C1183894F200BA111F /* 3-4我的酒店订单.png */,
 				9D5829F2182FC9E6009EB477 /* testOrderList.txt */,
 				9D5829CE182F8ECC009EB477 /* Images.xcassets */,
@@ -288,6 +303,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 9D5829AA182F8ECC009EB477;
 			productRefGroup = 9D5829B4182F8ECC009EB477 /* Products */;
@@ -362,11 +378,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D5829ED182F8F86009EB477 /* YGBaseModel.m in Sources */,
+				9DE7DBDA1841CBBC00B64F0A /* YGBaseViewController.m in Sources */,
+				9DE7DBE51841F58B00B64F0A /* SFHFKeychainUtils.m in Sources */,
+				9DE7DBE61841F58B00B64F0A /* SFHFLoginUtil.m in Sources */,
 				9D5829C7182F8ECC009EB477 /* YGAppDelegate.m in Sources */,
 				9D5829F6182FCD23009EB477 /* YGBaseRequest.m in Sources */,
 				9D5829CD182F8ECC009EB477 /* YGViewController.m in Sources */,
 				A8A0471A183B00F400E96F52 /* UIView+category.m in Sources */,
 				9D5829C3182F8ECC009EB477 /* main.m in Sources */,
+				9DE7DBDD1841F29E00B64F0A /* YGConfig.m in Sources */,
 				9D07C2BA183868FA00BA111F /* YGBaseParse.m in Sources */,
 				9D07C2BD18386A3700BA111F /* YGResponse.m in Sources */,
 				9D07C2B618379B5700BA111F /* YGVerticalAlignmentLabel.m in Sources */,
@@ -396,6 +416,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				9D5829C0182F8ECC009EB477 /* en */,
+				9DE7DBE81842002E00B64F0A /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -404,6 +425,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				9D5829C9182F8ECC009EB477 /* Base */,
+				9DE7DBE71842002E00B64F0A /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -412,6 +434,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				9D5829DF182F8ECC009EB477 /* en */,
+				9DE7DBE91842002E00B64F0A /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

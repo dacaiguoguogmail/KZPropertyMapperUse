@@ -11,7 +11,15 @@
 #import "YGBaseModel.h"
 #import "YGResponse.h"
 
+#define REQUEST_URL @"http://api3g.lvmama.com"
+#define LOGIN_URL @"http://login.lvmama.com"
+#define FIRST_CHANNEL @"IPHONE"
+#define SECOND_CHANNEL @"APPSTORE"
+#define CFBundleVersion [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]
+
+
+
 @interface YGBaseRequest : NSObject
-+ (AFHTTPRequestOperation* )requestOrderListWithUrl:(NSURL *)url completionBlock:(void (^)(AFHTTPRequestOperation *operation, YGResponse* responseObject))success
-                                              failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+- (id)requestOrderListWithParameters:(NSDictionary *)param completionBlock:(void (^)(YGResponse* responseObject))success failure:(void (^)(NSError *error))failure;
+- (void)cancelAllRequest;
 @end

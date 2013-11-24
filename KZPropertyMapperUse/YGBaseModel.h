@@ -103,7 +103,7 @@
 
  
  */
-#define hah - (NSString *)ss;
+
 #import <Foundation/Foundation.h>
 @interface YGBaseModel : NSObject<NSCopying,NSCoding>
 - (void)setAttribute:(id)obj forKey:(id <NSCopying>)key;
