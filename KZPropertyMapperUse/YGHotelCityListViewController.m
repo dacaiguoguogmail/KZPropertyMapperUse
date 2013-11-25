@@ -10,6 +10,7 @@
 
 
 @interface YGHotelCityListViewController ()
+@property (nonatomic, copy) YGCityList *cityList;
 @end
 
 @implementation YGHotelCityListViewController
@@ -18,7 +19,7 @@
 {
     [super viewDidLoad];
     [self.requestManager requestHotelCityListWithCompletionBlock:^(YGResponse *responseObject) {
-        
+        self.cityList = responseObject.responseObj;
     } failure:^(NSError *error)  {
         
     } checkVersion:NO];
