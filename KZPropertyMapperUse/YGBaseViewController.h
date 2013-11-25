@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-@class YGBaseRequest;
+#import "YGBaseRequest.h"
+
 @interface YGBaseViewController : UIViewController
 @property (nonatomic, retain) YGBaseRequest* requestManager;
+- (void)initUI;
+- (void)initParams;
 @end

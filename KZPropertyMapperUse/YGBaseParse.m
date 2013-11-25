@@ -10,13 +10,36 @@
 #import "YGBaseModel.h"
 #import "YGResponse.h"
 
+/*! target=dic[key];  会对dic 进行类型检测  */
+#define YKGDS_DIC_OBJ(target,dic,key) {\
+if([dic isKindOfClass:[NSDictionary class]]){\
+target=[dic objectForKey:key];\
+}else{\
+assert(NO);\
+}\
+if(target==nil){\
+}\
+}
+
+/*! target=dic[key];  会对dic 进行类型检测，会保证 target 是字符串类型  */
+#define YKGDS_DIC_OBJ_STR(target,dic,key) {\
+id aaaobj=nil; \
+YKGDS_DIC_OBJ(aaaobj,dic,key); \
+if([aaaobj isKindOfClass:[NSString class]]){\
+target=aaaobj;  \
+}else{\
+target=@"";\
+} \
+}
+
+
 @implementation YGBaseParse
 
 -(YGResponse*) parseFromJson:(id) jsonObj{
     YGResponse *base = [[YGResponse alloc] init];
-    base.message = [jsonObj objectForKey:@"message"];
-    base.result = [jsonObj objectForKey:@"code"];
-    base.responseObj = [jsonObj objectForKey:@"data"];
+    YKGDS_DIC_OBJ_STR(base.message, jsonObj, @"message");
+    YKGDS_DIC_OBJ_STR(base.result, jsonObj, @"code");
+    YKGDS_DIC_OBJ(base.responseObj, jsonObj, @"data");
     return base;
 }
 
@@ -36,10 +59,10 @@
 
 - (void)paserResponseObjTo:(YGOrderDetail **)dic useDic:(NSDictionary*)res{
     YGOrderDetail *tempDetail = [YGOrderDetail new];
-    tempDetail.arrivalDate = [res objectForKey:@"arrivalDate"];
-    tempDetail.cancelTime = [res objectForKey:@"cancelTime"];
-    tempDetail.confirmationType = [res objectForKey:@"confirmationType"];
-    tempDetail.hotelId = [res objectForKey:@"hotelId"];
+    YKGDS_DIC_OBJ_STR(tempDetail.arrivalDate, res, @"arrivalDate");
+    YKGDS_DIC_OBJ_STR(tempDetail.cancelTime, res, @"cancelTime");
+    YKGDS_DIC_OBJ_STR(tempDetail.confirmationType, res, @"confirmationType");
+    YKGDS_DIC_OBJ_STR(tempDetail.hotelId, res, @"hotelId");
     *dic = tempDetail;
 }
 @end
@@ -71,3 +94,45 @@
 }
 @end
 
+
+@implementation YGCityParse
+
+-(YGResponse*) parseFromJson:(id) jsonObj{
+    return nil;
+}
+
+- (void)paserResponseObjTo:(YGCity **)dic use:(NSDictionary*)res{
+    YGCity *temp = [[YGCity alloc] init];
+    YKGDS_DIC_OBJ_STR(temp.cityId, res, @"id");
+    YKGDS_DIC_OBJ_STR(temp.name, res, @"name");
+    YKGDS_DIC_OBJ_STR(temp.pinyin, res, @"pinyin");
+    NSNumber *isHot = nil;
+    YKGDS_DIC_OBJ(isHot, res, @"isHot");
+    [temp setHot:isHot.boolValue];
+    *dic = temp;
+}
+@end@implementation YGCityListParse
+
+-(YGResponse*) parseFromJson:(id) jsonObj{
+    YGResponse *base =  [super parseFromJson:jsonObj];
+    YGCityList *tempReaponseObj = nil;
+    if ([base.result isEqualToString:YG_SUCCESS_CODE]&&[base.responseObj isKindOfClass:[NSDictionary class]]&&[base.responseObj count]>0) {
+        [self paserResponseObjTo:&tempReaponseObj use:base.responseObj];
+    }
+    base.responseObj = tempReaponseObj;
+    return base;
+}
+
+- (void)paserResponseObjTo:(YGCityList **)dic use:(NSDictionary*)res{
+    NSMutableArray *mutArray = [[NSMutableArray alloc] init];
+    NSArray *tempArray = [res objectForKey:@"cities"];
+    for (id obj in tempArray) {
+        YGCityParse *cityParse = [[YGCityParse alloc] init];
+        YGCity *tempDetail = nil;
+        [cityParse paserResponseObjTo:&tempDetail use:obj];
+        [mutArray addObject:tempDetail];
+    }
+    *dic = mutArray;
+    [[NSUserDefaults standardUserDefaults] setObject:[res objectForKey:@"version"] forKey:@"hotelCityListCacheVersion"];
+}
+@end

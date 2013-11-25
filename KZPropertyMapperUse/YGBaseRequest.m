@@ -10,23 +10,25 @@
 #import "YGBaseParse.h"
 #import "SFHFKeychainUtils.h"
 #import "sys/utsname.h"
-
 @import CoreTelephony;
-#define YG_REQUEST_VALIDATION(responseObject,url,op,paserClass) {\
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];\
-    op = [[AFHTTPRequestOperation alloc] initWithRequest:request];\
-    op.responseSerializer = [AFJSONResponseSerializer serializer];\
-    [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {\
-        paserClass *paser = [[paserClass alloc] init];\
-        YGResponse *response = [paser parseFromJson:responseObject];\
+
+
+#define YG_REQUEST_VALIDATION(rmethodName, paserClass,dic) {\
+    AFHTTPRequestOperation *op =  [self.requestManager GET:[YGBaseRequest urlStringByMethod:rmethodName] parameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {\
+        NSLog(@"%@\nsuccess:\n%@",[operation.request.URL absoluteString],operation.responseString);\
+        YGResponse *response = nil;\
+        paserClass *cityParse = [[paserClass alloc] init];\
+        response = [cityParse parseFromJson:responseObject];\
         if ([response.result isEqualToString:YG_ERROR_CODE]) {\
             NSError* error=[NSError errorWithDomain:YG_SERVER_ERROR_DOMAIN code:YG_ERROR_CODE_INVALID_RESPONSE_EXCEPTION userInfo:@{@"message": [responseObject objectForKey:@"message"]}];\
-            failure(operation, error);\
+            failure(error);\
         }\
-        success(operation, response);\
+        success(response);\
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {\
-        failure(operation, error);\
+        NSLog(@"%@\nfailure:\n%@",[operation.request.URL absoluteString],operation.responseString);\
+        failure(error);\
     }];\
+        return op;\
 }
 
 
@@ -53,6 +55,18 @@
 - (void)dealloc{
     [self cancelAllRequest];
 }
+
+
+- (id)requestHotelCityListWithCompletionBlock:(void (^)(YGResponse* responseObject))success failure:(void (^)(NSError *error))failure checkVersion:(BOOL)isCheckVersion{
+    NSDictionary *dic = nil;
+    isCheckVersion?dic = @{ @"checkVersion": @"true" }:0;
+    YG_REQUEST_VALIDATION(@"hotel.getCities", YGCityListParse,dic);
+}
+
+- (id)requestOrderListWithParameters:(NSDictionary *)param completionBlock:(void (^)(YGResponse* responseObject))success failure:(void (^)(NSError *error))failure{
+    return nil;
+}
+
 
 + (NSString *)stringWithUUID {
     NSString *uuid = [SFHFKeychainUtils getPasswordForUsername:@"lvmama_iphone_uuid" andServiceName:@"com.Lvmama.Lvmama" error:nil];
@@ -92,32 +106,19 @@
 
 + (NSString *)getRequestHeader {
     return [NSString stringWithFormat:@"udid=%@&lvsessionid=%@&firstChannel=%@&secondChannel=%@&lvversion=%@&osVersion=%@&deviceName=%@&netWorkType=%@&format=json",
-             [YGBaseRequest stringWithUUID],
-             [[NSUserDefaults  standardUserDefaults] stringForKey:@"sessionId"],
-             FIRST_CHANNEL,
-             SECOND_CHANNEL,
-             CFBundleVersion,
-             [[UIDevice currentDevice] systemVersion],
-             [YGBaseRequest deviceType],
-             [YGBaseRequest getMobileCountryNetworkCode]];
+            [YGBaseRequest stringWithUUID],
+            [[NSUserDefaults  standardUserDefaults] stringForKey:@"sessionId"],
+            FIRST_CHANNEL,
+            SECOND_CHANNEL,
+            CFBundleVersion,
+            [[UIDevice currentDevice] systemVersion],
+            [YGBaseRequest deviceType],
+            [YGBaseRequest getMobileCountryNetworkCode]];
 }
-- (id)requestOrderListWithParameters:(NSDictionary *)param completionBlock:(void (^)(YGResponse* responseObject))success failure:(void (^)(NSError *error))failure{
-    return [self.requestManager POST:@"" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-    }];
-}
-- (AFHTTPRequestOperation* )requestOrderListWithUrl:(NSURL *)url completionBlock:(void (^)(AFHTTPRequestOperation *operation, YGResponse* responseObject))success
-                                              failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
-    [self.requestManager POST:@"" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-    }];
-    AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] init];
-    YG_REQUEST_VALIDATION(responseObject,url,op,YGOrderListParse);
-    return op;
+
++ (NSString *)urlStringByMethod:(NSString *)methodName{
+    NSString* urlString = [NSString stringWithFormat:@"/clutter/router/rest.do?method=api.com.%@&%@", methodName, [YGBaseRequest getRequestHeader]];
+    return [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
 
 #include <ifaddrs.h>

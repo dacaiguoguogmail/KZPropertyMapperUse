@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "YGBaseViewController.h"
 
-@interface YGViewController : YGBaseViewController
+
+
+@interface YGHotelCityListViewController : YGBaseViewController
 
 @end
