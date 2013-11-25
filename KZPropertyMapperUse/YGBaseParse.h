@@ -38,3 +38,10 @@
 @interface YGOrderListParse : YGBaseParse<YGJsonParser>
 
 @end
+
+@interface YGCityParse : YGBaseParse<YGJsonParser>
+
+@end
+@interface YGCityListParse : YGBaseParse<YGJsonParser>
+
+@end

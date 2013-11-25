@@ -18,7 +18,7 @@
 		9D5829C3182F8ECC009EB477 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5829C2182F8ECC009EB477 /* main.m */; };
 		9D5829C7182F8ECC009EB477 /* YGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5829C6182F8ECC009EB477 /* YGAppDelegate.m */; };
 		9D5829CA182F8ECC009EB477 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D5829C8182F8ECC009EB477 /* Main.storyboard */; };
-		9D5829CD182F8ECC009EB477 /* YGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5829CC182F8ECC009EB477 /* YGViewController.m */; };
+		9D5829CD182F8ECC009EB477 /* YGHotelCityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D5829CC182F8ECC009EB477 /* YGHotelCityListViewController.m */; };
 		9D5829CF182F8ECC009EB477 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D5829CE182F8ECC009EB477 /* Images.xcassets */; };
 		9D5829D6182F8ECC009EB477 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D5829D5182F8ECC009EB477 /* XCTest.framework */; };
 		9D5829D7182F8ECC009EB477 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D5829B6182F8ECC009EB477 /* Foundation.framework */; };
@@ -67,8 +67,8 @@
 		9D5829C5182F8ECC009EB477 /* YGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGAppDelegate.h; sourceTree = "<group>"; };
 		9D5829C6182F8ECC009EB477 /* YGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGAppDelegate.m; sourceTree = "<group>"; };
 		9D5829C9182F8ECC009EB477 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9D5829CB182F8ECC009EB477 /* YGViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGViewController.h; sourceTree = "<group>"; };
-		9D5829CC182F8ECC009EB477 /* YGViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGViewController.m; sourceTree = "<group>"; };
+		9D5829CB182F8ECC009EB477 /* YGHotelCityListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YGHotelCityListViewController.h; sourceTree = "<group>"; };
+		9D5829CC182F8ECC009EB477 /* YGHotelCityListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YGHotelCityListViewController.m; sourceTree = "<group>"; };
 		9D5829CE182F8ECC009EB477 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9D5829D4182F8ECC009EB477 /* KZPropertyMapperUseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KZPropertyMapperUseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D5829D5182F8ECC009EB477 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -205,8 +205,8 @@
 				9D5829C8182F8ECC009EB477 /* Main.storyboard */,
 				9DE7DBD81841CBBC00B64F0A /* YGBaseViewController.h */,
 				9DE7DBD91841CBBC00B64F0A /* YGBaseViewController.m */,
-				9D5829CB182F8ECC009EB477 /* YGViewController.h */,
-				9D5829CC182F8ECC009EB477 /* YGViewController.m */,
+				9D5829CB182F8ECC009EB477 /* YGHotelCityListViewController.h */,
+				9D5829CC182F8ECC009EB477 /* YGHotelCityListViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -383,7 +383,7 @@
 				9DE7DBE61841F58B00B64F0A /* SFHFLoginUtil.m in Sources */,
 				9D5829C7182F8ECC009EB477 /* YGAppDelegate.m in Sources */,
 				9D5829F6182FCD23009EB477 /* YGBaseRequest.m in Sources */,
-				9D5829CD182F8ECC009EB477 /* YGViewController.m in Sources */,
+				9D5829CD182F8ECC009EB477 /* YGHotelCityListViewController.m in Sources */,
 				A8A0471A183B00F400E96F52 /* UIView+category.m in Sources */,
 				9D5829C3182F8ECC009EB477 /* main.m in Sources */,
 				9DE7DBDD1841F29E00B64F0A /* YGConfig.m in Sources */,

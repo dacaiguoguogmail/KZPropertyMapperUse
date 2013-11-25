@@ -7,7 +7,7 @@
 //
 
 #import "YGBaseViewController.h"
-#import "YGBaseRequest.h"
+
 @interface YGBaseViewController ()
 
 @end
@@ -17,6 +17,14 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     self.requestManager = [[YGBaseRequest alloc] init];
+}
+
+- (void)initUI{
+    [self doesNotRecognizeSelector:_cmd];
+}
+
+- (void)initParams{
+    [self doesNotRecognizeSelector:_cmd];
 }
 
 - (void)dealloc{

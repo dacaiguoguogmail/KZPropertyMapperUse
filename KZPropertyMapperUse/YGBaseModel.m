@@ -121,6 +121,20 @@ YG_SETDEFINE_BOOL(HasNext);
 @end
 
 
+@implementation YGCity
 
+YG_GETDEFINE(cityId);
+YG_SETDEFINE(CityId);
+
+YG_GETDEFINE(name);
+YG_SETDEFINE(Name);
+
+YG_GETDEFINE_BOOL_IS(Hot);
+YG_SETDEFINE_BOOL(Hot);
+
+YG_GETDEFINE(pinyin);
+YG_SETDEFINE(Pinyin);
+
+@end
 
 

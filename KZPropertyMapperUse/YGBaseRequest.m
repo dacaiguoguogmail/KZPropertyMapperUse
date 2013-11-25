@@ -101,6 +101,26 @@
              [YGBaseRequest deviceType],
              [YGBaseRequest getMobileCountryNetworkCode]];
 }
+
++ (NSString *)urlStringByMethod:(NSString *)methodName{
+    
+    NSString* urlString = [NSString stringWithFormat:@"/clutter/router/rest.do?method=api.com.%@&%@", methodName, [YGBaseRequest getRequestHeader]];
+    return [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+}
+
+- (id)requestHotelCityListWithCompletionBlock:(void (^)(YGResponse* responseObject))success failure:(void (^)(NSError *error))failure checkVersion:(BOOL)isCheckVersion{
+    NSDictionary *dic = nil;
+    isCheckVersion?dic = @{ @"checkVersion": @"true" }:0;
+    
+    return [self.requestManager GET:[YGBaseRequest urlStringByMethod:@"hotel.getCities"] parameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@\nsuccess:\n%@",[operation.request.URL absoluteString],operation.responseString);
+        success(responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@\failure:\n%@",[operation.request.URL absoluteString],operation.responseString);
+        failure(error);
+    }];
+}
+
 - (id)requestOrderListWithParameters:(NSDictionary *)param completionBlock:(void (^)(YGResponse* responseObject))success failure:(void (^)(NSError *error))failure{
     return [self.requestManager POST:@"" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
@@ -108,6 +128,8 @@
         
     }];
 }
+
+
 - (AFHTTPRequestOperation* )requestOrderListWithUrl:(NSURL *)url completionBlock:(void (^)(AFHTTPRequestOperation *operation, YGResponse* responseObject))success
                                               failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     [self.requestManager POST:@"" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
