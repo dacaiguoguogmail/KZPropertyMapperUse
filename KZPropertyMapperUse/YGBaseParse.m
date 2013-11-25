@@ -38,8 +38,8 @@ target=@"";\
 -(YGResponse*) parseFromJson:(id) jsonObj{
     YGResponse *base = [[YGResponse alloc] init];
     YKGDS_DIC_OBJ_STR(base.message, jsonObj, @"message");
-    YKGDS_DIC_OBJ_STR(base.message, jsonObj, @"code");
-    YKGDS_DIC_OBJ_STR(base.message, jsonObj, @"data");
+    YKGDS_DIC_OBJ_STR(base.result, jsonObj, @"code");
+    YKGDS_DIC_OBJ(base.responseObj, jsonObj, @"data");
     return base;
 }
 
@@ -125,13 +125,14 @@ target=@"";\
 
 - (void)paserResponseObjTo:(YGCityList **)dic use:(NSDictionary*)res{
     NSMutableArray *mutArray = [[NSMutableArray alloc] init];
-    NSArray *tempArray = [res objectForKey:@"YGCityList"];
+    NSArray *tempArray = [res objectForKey:@"cities"];
     for (id obj in tempArray) {
         YGCityParse *cityParse = [[YGCityParse alloc] init];
         YGCity *tempDetail = nil;
         [cityParse paserResponseObjTo:&tempDetail use:obj];
         [mutArray addObject:tempDetail];
     }
-    *dic = tempArray;
+    *dic = mutArray;
+    [[NSUserDefaults standardUserDefaults] setObject:[res objectForKey:@"version"] forKey:@"hotelCityListCacheVersion"];
 }
 @end

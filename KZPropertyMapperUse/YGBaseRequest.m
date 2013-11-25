@@ -103,7 +103,6 @@
 }
 
 + (NSString *)urlStringByMethod:(NSString *)methodName{
-    
     NSString* urlString = [NSString stringWithFormat:@"/clutter/router/rest.do?method=api.com.%@&%@", methodName, [YGBaseRequest getRequestHeader]];
     return [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
@@ -114,7 +113,10 @@
     
     return [self.requestManager GET:[YGBaseRequest urlStringByMethod:@"hotel.getCities"] parameters:dic success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@\nsuccess:\n%@",[operation.request.URL absoluteString],operation.responseString);
-        success(responseObject);
+        YGResponse *response = nil;
+        YGCityListParse *cityParse = [[YGCityListParse alloc] init];
+        response = [cityParse parseFromJson:responseObject];
+        success(response);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@\failure:\n%@",[operation.request.URL absoluteString],operation.responseString);
         failure(error);
